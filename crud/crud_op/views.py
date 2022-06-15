@@ -31,3 +31,8 @@ def update(request, id):
         form.save()
         messages.success(request,"Student record updated")
     return render(request,"edit.html",{'stud':updatedetails})
+def delete(request, id):
+    deldetails=stud.objects.get(id=id)
+    deldetails.delete()
+    res=stud.objects.all()
+    return render(request,"index.html",{'stud':res})
