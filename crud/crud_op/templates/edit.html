@@ -1,0 +1,26 @@
+<html>
+<head>
+
+</head>
+<body>
+    <center>
+        <h1>Edit the Student record</h1>
+        <h1> Edit the field for the student: {{stud.id}}</h1>
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1">
+            <tr><td>Name</td>
+            <td><input type="text" value="{{stud.sname}}"></td></tr>
+            <tr><td>Email</td>
+                <td><input type="text" value="{{stud.semail}}"></td></tr>
+            <tr><td>Address</td>
+                <td><input type="text" value="{{stud.saddress}}"></td></tr>
+            <tr><td>Mobile</td>
+                <td><input type="text" value="{{stud.smobile}}"></td></tr>
+            <tr><td>Gender</td>
+                <td><input type="text" value="{{stud.sgender}}"></td></tr>
+        </table>
+        </form>
+    </center>   
+</body>
+</html>

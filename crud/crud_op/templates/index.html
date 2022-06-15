@@ -1,0 +1,37 @@
+<html>
+
+
+<head>
+
+</head>
+<body>
+
+<center>
+    <h1> Display Student DB list</h1>
+
+    <a href="{% url 'insert'%}"> Add Record</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email </th>
+            <th>Address</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+        </tr>
+        {% for res in stud %}
+        <tr>
+            <td>{{res.id}}</td>
+            <td>{{res.sname}}</td>
+            <td>{{res.semail}}</td>
+            <td>{{res.saddress}}</td>
+            <td>{{res.smobile}}</td>
+            <td>{{res.sgender}}</td>
+            <td><tr href="{% url 'edit/{{res.id}}'%}">Edit</tr></td>
+            <td>{{res.sgender}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>

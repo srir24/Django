@@ -1,0 +1,43 @@
+<html>
+
+<head><title>This is create</title></head>
+<body>
+
+    <center>
+<h1>Insert new Student record</h1>
+<form method="POST">
+    {% csrf_token %}
+<table border="1">
+    <tr>
+        <td>Student Name:</td>
+        <td><input type="text" placeholder="Student Name"  name="sname"></td>
+    </tr>
+    <tr>
+        <td>Student Email:</td>
+        <td><input type="text" placeholder="Student Email"  name="semail"></td>
+    </tr>
+    <tr>
+        <td>Student Address:</td>
+        <td><input type="text" placeholder="Student Address"  name="saddress"></td>
+    </tr>
+    <tr>
+        <td>Student Mobile:</td>
+        <td><input type="text" placeholder="Student Mobile"  name="smobile"></td>
+    </tr>
+    <tr>
+        <td>Student Gender:</td>
+        <td><input type="radio" value="M" name="sgender" group="sgender">Male
+            <input type="radio" value="F" name="sgender" group="sgender">FeMale</td>
+    </tr>
+</table>
+<input type="submit" value="Insert record">
+</form>
+{% if messages%}
+{% for res in messages %}
+{{res}}
+{% endfor %}
+{% endif %}
+<a href="{% url 'display'%}"> Display Record</a>
+    </center>
+</body>
+</html>
