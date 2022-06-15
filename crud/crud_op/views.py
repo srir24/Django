@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from crud_op.models import stud
 from django.contrib import messages
+from crud_op.forms import stdform
 # Create your views here.
 
 def display(request):
@@ -23,3 +24,10 @@ def add(request):
 def edit(request, id):
     getdetails=stud.objects.get(id=id)
     return render(request,"edit.html",{'stud':getdetails})
+def update(request, id):
+    updatedetails=stud.objects.get(id=id)
+    form=stdform(request.POST, instance=updatedetails)
+    if form.is_valid():
+        form.save()
+        messages.success(request,"Student record updated")
+    return render(request,"edit.html",{'stud':updatedetails})
