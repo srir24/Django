@@ -6,22 +6,27 @@
     <center>
         <h1>Edit the Student record</h1>
         <h1> Edit the field for the student: {{stud.id}}</h1>
-        <form method="POST">
+        <form method="POST" action="/update/{{stud.id}}">
             {% csrf_token %}
         <table border="1">
             <tr><td>Name</td>
-            <td><input type="text" value="{{stud.sname}}"></td></tr>
+            <td><input type="text" name="sname" value="{{stud.sname}}"></td></tr>
             <tr><td>Email</td>
-                <td><input type="text" value="{{stud.semail}}"></td></tr>
+                <td><input type="text" name="semail" value="{{stud.semail}}"></td></tr>
             <tr><td>Address</td>
-                <td><input type="text" value="{{stud.saddress}}"></td></tr>
+                <td><input type="text" name="saddress" value="{{stud.saddress}}"></td></tr>
             <tr><td>Mobile</td>
-                <td><input type="text" value="{{stud.smobile}}"></td></tr>
+                <td><input type="text" name="smobile" value="{{stud.smobile}}"></td></tr>
             <tr><td>Gender</td>
-                <td><input type="text" value="{{stud.sgender}}"></td></tr>
+                <td><input type="text" name="sgender" value="{{stud.sgender}}"></td></tr>
         </table>
         <input type="submit" value="Update">
         <a href="{% url 'display'%}"> Display Record</a>
+            {% if messages%}
+        {% for res in messages %}
+        {{res}}
+        {% endfor %}
+        {% endif %}    
         </form>
     </center>   
 </body>
