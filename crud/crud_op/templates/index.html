@@ -28,7 +28,7 @@
             <td>{{res.smobile}}</td>
             <td>{{res.sgender}}</td>
             <td><tr href="{% url 'edit/{{res.id}}'%}">Edit</tr></td>
-            <td>{{res.sgender}}</td>
+            <td><a href="delete/{{res.id}}">Delete</a></td>
         </tr>
         {% endfor %}
     </table>
