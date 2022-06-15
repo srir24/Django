@@ -20,7 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.display,name="display"),
     path('insert',views.add,name="insert"),
-    path('edit/<int: id>',views.edit,name="edit")
-    path('update/<int:id>',views.update,name="update")
+    path('edit/<int: id>',views.edit,name="edit"),
+    path('update/<int:id>',views.update,name="update"),
+    path('delete/<int:id>',views.delete,name="delete")
 
 ]
